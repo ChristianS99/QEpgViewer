@@ -1,0 +1,4 @@
+[Project]
+Name=QEpgViewer
+Manager=KDevCMakeManager
+VersionControl=kdevgit
