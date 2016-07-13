@@ -17,21 +17,25 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+class Ch;
+#ifndef CHANNEL_H
+#define CHANNEL_H
 
+#include <QString>
+#include <QImage>
 #include <QDomElement>
-#include <QFrame>
+#include <QUrl>
 
-class ProgrammeView : public QFrame
+class Channel
 {
-	Q_OBJECT
-public:
-	ProgrammeView( QDomElement programmeElement );
 private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
+	QString channelId;
+	QString displayName;
+	QUrl channelLogoUrl;
+	QImage channelLogo;
+public:
+	Channel( QDomElement channelData );
+	const QString& getDisplayName() const { return displayName; }; 
 };
 
-#endif // PROGRAMMEVIEW_H
+#endif // CHANNEL_H

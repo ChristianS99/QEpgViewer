@@ -17,21 +17,20 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+#include "ChannelView.h"
 
-#include <QDomElement>
-#include <QFrame>
+#include <QBoxLayout>
 
-class ProgrammeView : public QFrame
+ChannelView::ChannelView()
 {
-	Q_OBJECT
-public:
-	ProgrammeView( QDomElement programmeElement );
-private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
-};
+	QBoxLayout* bl = new QBoxLayout( QBoxLayout::TopToBottom );
+	this->setLayout( bl );
+	bl->setSpacing(0);
+}
 
-#endif // PROGRAMMEVIEW_H
+void ChannelView::addProgrammeView(ProgrammeView* added)
+{
+	this->layout()->addWidget(added);
+}
+
+#include "ChannelView.moc"

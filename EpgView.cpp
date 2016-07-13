@@ -17,21 +17,23 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+#include "EpgView.h"
 
-#include <QDomElement>
-#include <QFrame>
+#include <QBoxLayout>
+#include <QWidget>
 
-class ProgrammeView : public QFrame
+EpgView::EpgView()
 {
-	Q_OBJECT
-public:
-	ProgrammeView( QDomElement programmeElement );
-private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
-};
+	QWidget* widget = new QWidget();
+	QBoxLayout* bl = new QBoxLayout( QBoxLayout::LeftToRight );
+	widget->setLayout(bl);
+	this->setWidget( widget );
+}
 
-#endif // PROGRAMMEVIEW_H
+void EpgView::addChannel( const Channel& newChannel)
+{
+	channelList.push_back( newChannel );
+}
+
+
+#include "EpgView.moc"

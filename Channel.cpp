@@ -17,21 +17,25 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+#include "Channel.h"
 
-#include <QDomElement>
-#include <QFrame>
+#include <QFile>
 
-class ProgrammeView : public QFrame
+Channel::Channel(QDomElement channelData) : channelId(""), displayName(""), channelLogoUrl() ,channelLogo()
 {
-	Q_OBJECT
-public:
-	ProgrammeView( QDomElement programmeElement );
-private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
-};
+	if ( channelData.tagName() != "channel" )
+		{
+			throw;
+		}
+		
+	channelId = channelData.attribute( "id" );
+	displayName = channelData.firstChildElement("display-name").text();
+	channelLogoUrl.setUrl(channelData.firstChildElement("display-name").attribute("src"));
+	if( QFile::exists(channelLogoUrl.fileName()) )
+		channelLogo.load(channelLogoUrl.fileName());
+	//else
+		//throw; //not implemented
 
-#endif // PROGRAMMEVIEW_H
+}
+
+#include "Channel.moc"

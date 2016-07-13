@@ -17,21 +17,19 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+#ifndef CHANNELVIEW_H
+#define CHANNELVIEW_H
 
-#include <QDomElement>
-#include <QFrame>
+#include <QWidget>
+#include "ProgrammeView.h"
 
-class ProgrammeView : public QFrame
+class ChannelView : public QWidget
 {
 	Q_OBJECT
 public:
-	ProgrammeView( QDomElement programmeElement );
+	ChannelView();
+	void addProgrammeView( ProgrammeView* added );
 private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
 };
 
-#endif // PROGRAMMEVIEW_H
+#endif // CHANNELVIEW_H

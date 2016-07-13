@@ -17,21 +17,24 @@
  *
  */
 
-#ifndef PROGRAMMEVIEW_H
-#define PROGRAMMEVIEW_H
+#ifndef EPGVIEW_H
+#define EPGVIEW_H
 
-#include <QDomElement>
-#include <QFrame>
+#include <list>
 
-class ProgrammeView : public QFrame
+#include <QScrollArea>
+#include <QDomDocument>
+
+#include "Channel.h"
+
+class EpgView : public QScrollArea
 {
 	Q_OBJECT
 public:
-	ProgrammeView( QDomElement programmeElement );
+	EpgView();
+	void addChannel( const Channel& newChannel );
 private:
-protected:
-	virtual void enterEvent( QEvent* e );
-	virtual void leaveEvent( QEvent* e );
+	std::list<Channel> channelList;
 };
 
-#endif // PROGRAMMEVIEW_H
+#endif // EPGVIEW_H
