@@ -50,11 +50,16 @@ ProgrammeView::ProgrammeView ( QDomElement programmeNode )
 	this->setFixedHeight ( startTime.secsTo ( endTime ) / 10 );
 
 	QBoxLayout* bl2 = new QBoxLayout ( QBoxLayout::TopToBottom );
+	bl2->setAlignment( Qt::AlignTop );
 	bl->addLayout ( bl2, 1 );
 
 	auto titleNode = programmeNode.firstChildElement ( "title" );
 	QLabel* lblTitle = new QLabel ( "<noTitle>" );
-	lblTitle->setStyleSheet("font-weight: bold;");
+	lblTitle->setWordWrap(true);
+	
+	QFont fntTitle = lblTitle->font();
+	fntTitle.setBold(true);
+	lblTitle->setFont(fntTitle);
 
 	if ( !titleNode.isNull() )
 		lblTitle->setText ( titleNode.text() );
@@ -66,11 +71,22 @@ ProgrammeView::ProgrammeView ( QDomElement programmeNode )
 	if ( !subTitleNode.isNull() )
 		{
 			QLabel* lblSubTitle = new QLabel ( subTitleNode.text() );
+			lblSubTitle->setWordWrap(true);
+			
+			QFont fntSubTitle = lblSubTitle->font();
+			fntSubTitle.setPointSizeF( fntSubTitle.pointSizeF()*.9);
+			lblSubTitle->setFont(fntSubTitle);
+	
 			bl2->addWidget ( lblSubTitle );
 		}
 
 	auto descriptionNode = programmeNode.firstChildElement ( "desc" );
 	QLabel* lblDescripton = new QLabel ( "<noDescription>" );
+	
+	QFont fntDescription = lblDescripton->font();
+	fntDescription.setPointSizeF( fntDescription.pointSizeF()*.8);
+	lblDescripton->setFont(fntDescription);
+	
 	lblDescripton->setWordWrap ( true );
 
 	if ( !descriptionNode.isNull() )
