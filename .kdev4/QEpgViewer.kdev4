@@ -19,7 +19,7 @@ Launch Configurations=Launch Configuration 0
 [Launch][Launch Configuration 0]
 Configured Launch Modes=execute
 Configured Launchers=nativeAppLauncher
-Name=Neuer Kompilierte Programmdatei-Starter
+Name=Debug
 Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
@@ -27,12 +27,12 @@ Arguments=
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
 EnvironmentGroup=
-Executable=file:///home/chriss/Projekte/QEpgViewer
+Executable=file:///home/chriss/Projekte/QEpgViewer/Debug/qepgviewer
 External Terminal=konsole --noclose --workdir %workdir -e %exe
-Project Target=QEpgViewer,qepgviewer
+Project Target=
 Use External Terminal=false
-Working Directory=
-isExecutable=false
+Working Directory=file:///home/chriss/Projekte/QEpgViewer
+isExecutable=true
 
 [Project]
 VersionControlSupport=kdevgit

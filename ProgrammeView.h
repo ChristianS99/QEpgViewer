@@ -22,15 +22,17 @@
 
 #include <QWidget>
 #include <QTime>
+#include <QDomElement>
+#include <QLabel>
 
 class ProgrammeView : public QWidget
 {
 	Q_OBJECT
 public:
-	ProgrammeView();
+	ProgrammeView( QDomElement programmeElement );
 	virtual ~ProgrammeView();
 private:
-	QTime startTime;
+	
 };
 
 #endif // PROGRAMMEVIEW_H

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tv SYSTEM "xmltv.dtd">
+
+<tv generator-info-name="nonametv">
+  <programme start="20160715055500 +0200" stop="20160715062000 +0200" channel="3sat.de">
+    <title lang="de">Newton</title>
+    <sub-title lang="de">Verkehr in Schwebe</sub-title>
+    <desc lang="de">Seilbahnen verbindet man hauptsächlich mit hohen Bergen und Skifahren. Doch immer öfter werden Seilbahnen eingesetzt, um dem täglichen Verkehrsinfarkt der Großstädte zu "entschweben".</desc>
+    <credits>
+      <producer>Hadmar Charley Mayer</producer>
+      <presenter>Matthias Euba</presenter>
+    </credits>
+    <category lang="en">series</category>
+  </programme>
+  <programme start="20160715062000 +0200" stop="20160715070000 +0200" channel="3sat.de">
+    <title lang="de">Kulturzeit</title>
+    <desc lang="de">"Kulturzeit" ist das werktägliche Kulturmagazin von 3sat.</desc>
+    <credits>
+      <presenter>Ernst A. Grandits</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715070000 +0200" stop="20160715073000 +0200" channel="3sat.de">
+    <title lang="de">nano</title>
+    <desc lang="de">Das 3sat-Wissenschaftsmagazin berichtet werktäglich ausführlich, verständlich und aktuell über Technik, Medizin, Wissenschaft und Forschung.</desc>
+    <credits>
+      <presenter>Kristina zur Mühlen</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715073000 +0200" stop="20160715090000 +0200" channel="3sat.de">
+    <title lang="de">Alpenpanorama</title>
+    <desc lang="de">"Alpenpanorama" zeigt über zahlreiche Web- und Panoramakameras täglich Livebilder aus ausgewählten Urlaubsorten.</desc>
+  </programme>
+  <programme start="20160715090000 +0200" stop="20160715090500 +0200" channel="3sat.de">
+    <title lang="de">ZIB</title>
+    <desc lang="de">Die Kurzausgaben der österreichischen Nachrichtensendung "Zeit im Bild" (ZIB) liefern neben klassischen Nachrichten Informationen über Entwicklungen auf den Finanzmärkten und Expertenanalysen.</desc>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160715090500 +0200" stop="20160715094500 +0200" channel="3sat.de">
+    <title lang="de">Kulturzeit</title>
+    <desc lang="de">"Kulturzeit" ist das werktägliche Kulturmagazin von 3sat.</desc>
+    <credits>
+      <presenter>Ernst A. Grandits</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715094500 +0200" stop="20160715101500 +0200" channel="3sat.de">
+    <title lang="de">nano</title>
+    <desc lang="de">Das 3sat-Wissenschaftsmagazin berichtet werktäglich ausführlich, verständlich und aktuell über Technik, Medizin, Wissenschaft und Forschung.</desc>
+    <credits>
+      <presenter>Kristina zur Mühlen</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715101500 +0200" stop="20160715113000 +0200" channel="3sat.de">
+    <title lang="de">Markus Lanz</title>
+    <desc lang="de">Markus Lanz spricht in seiner Talkshow mit seinen Gästen über aktuelle und gesellschaftlich relevante Themen - unterhaltend und journalistisch hintergründig.</desc>
+    <category lang="en">tvshow</category>
+    <category lang="en">Talk</category>
+  </programme>
+  <programme start="20160715113000 +0200" stop="20160715123000 +0200" channel="3sat.de">
+    <title lang="de">STÖCKL.</title>
+    <desc lang="de">Einmal wöchentlich lädt Barbara Stöckl prominente Persönlichkeiten und Menschen mit interessanter Lebensgeschichte in ihre Talkshow "STÖCKL.".</desc>
+    <credits>
+      <presenter>Barbara Stöckl</presenter>
+    </credits>
+    <category lang="en">Talk</category>
+  </programme>
+  <programme start="20160715123000 +0200" stop="20160715130000 +0200" channel="3sat.de">
+    <title lang="de">selbstbestimmt!</title>
+    <desc lang="de">&lt;p&gt;Kelles Suppenmanufaktur in Kläden&lt;br/&gt;Familienunternehmen erhält den Mitteldeutschen Inklusionspreis "Mosaik"&lt;br/&gt;&lt;br/&gt;Mit dem Krause Duo "Anna" die Ostsee&lt;br/&gt;Vater Andreas und Sohn David Hanke starten zum Roadtrip des Jahres&lt;br/&gt;&lt;br/&gt;Sonntagsfragen mit Matthias Platzeck&lt;br/&gt;Jennifer Sonntag und der erste politische Gast in ihrer Sendung&lt;br/&gt;&lt;br/&gt;Handicaps für Anfänger&lt;br/&gt;Martin Fromme klärt so manches Missverständnis auf seine Art und Weise&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;</desc>
+    <credits>
+      <presenter>Martin Fromme</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715130000 +0200" stop="20160715132000 +0200" channel="3sat.de">
+    <title lang="de">ZIB</title>
+    <desc lang="de">Die Kurzausgaben der österreichischen Nachrichtensendung "Zeit im Bild" (ZIB) liefern neben klassischen Nachrichten Informationen über Entwicklungen auf den Finanzmärkten und Expertenanalysen.</desc>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160715132000 +0200" stop="20160715140500 +0200" channel="3sat.de">
+    <title lang="de">Im Luxuszug durch Afrika</title>
+    <desc lang="de">Einmal jährlich startet die zweiwöchige Reise im Luxuszug "Pride of Africa" von Südafrika nach Tansania. Der Zug startet in Kapstadt und durchquert Simbabwe.</desc>
+    <credits>
+      <producer>Claudius Gehr</producer>
+    </credits>
+    <category lang="en">movie</category>
+    <category lang="en">Documentary</category>
+    <episode-num system="xmltv_ns">. . 0/2</episode-num>
+  </programme>
+  <programme start="20160715140500 +0200" stop="20160715145000 +0200" channel="3sat.de">
+    <title lang="de">Im Luxuszug durch Afrika</title>
+    <desc lang="de">Der zweite Teil der Reise von Südafrika nach Tansania führt über Simbabwe zu den Victoria-Wasserfällen, Weltnaturerbe der UNESCO, an der Grenze zwischen Simbabwe und Sambia gelegen.</desc>
+    <credits>
+      <producer>Claudius Gehr</producer>
+    </credits>
+    <category lang="en">movie</category>
+    <category lang="en">Documentary</category>
+    <episode-num system="xmltv_ns">. . 1/2</episode-num>
+  </programme>
+  <programme start="20160715145000 +0200" stop="20160715153500 +0200" channel="3sat.de">
+    <title lang="de">Fahrt ins Risiko</title>
+    <sub-title lang="de">Unterwegs durch Mali</sub-title>
+    <desc lang="de">Im westafrikanischen Land Mali sind Straßen eher staubige, holprige Pisten. Nur mit großer Mühe und für wenige Monate im Jahr sind sie überhaupt befahrbar.</desc>
+    <credits>
+      <producer>Holger Preuße</producer>
+    </credits>
+    <category lang="en">series</category>
+    <category lang="en">Documentary</category>
+    <episode-num system="xmltv_ns">. . 0/5</episode-num>
+  </programme>
+  <programme start="20160715153500 +0200" stop="20160715161500 +0200" channel="3sat.de">
+    <title lang="de">Fahrt ins Risiko</title>
+    <sub-title lang="de">Im Labyrinth von Dhaka</sub-title>
+    <desc lang="de">Extrem dichter Verkehr zeichnet Bangladeschs Hauptstadt Dhaka aus. Der tägliche Kampf ums Überleben in einem der bevölkerungsdichtesten Länder wird auf den Straßen geführt.</desc>
+    <credits>
+      <producer>Kristian Kähler</producer>
+    </credits>
+    <date>2011</date>
+    <category lang="en">series</category>
+    <category lang="en">Documentary</category>
+    <url>http://thetvdb.com/?tab=episode&amp;seriesid=248763&amp;seasonid=465998&amp;id=4099887&amp;lid=14</url>
+    <episode-num system="xmltv_ns">0 . 1 .</episode-num>
+    <episode-num system="onscreen">Folge 2 Staffel 1</episode-num>
+    <episode-num system="thetvdb.com">series/248763</episode-num>
+  </programme>
+  <programme start="20160715161500 +0200" stop="20160715170000 +0200" channel="3sat.de">
+    <title lang="de">Fahrt ins Risiko</title>
+    <sub-title lang="de">Die Eisstraße durch Sibirien</sub-title>
+    <desc lang="de">Die Pisten Sibiriens sind im Winter monatelang schneebedeckt, vereist und schwer zu befahren. Im Frühling verwandeln sie sich in morastige Flächen und sind nicht mehr passierbar.</desc>
+    <credits>
+      <producer>Claus Wischmann</producer>
+    </credits>
+    <date>2011</date>
+    <category lang="en">series</category>
+    <category lang="en">Documentary</category>
+    <url>http://thetvdb.com/?tab=episode&amp;seriesid=248763&amp;seasonid=465998&amp;id=4099889&amp;lid=14</url>
+    <episode-num system="xmltv_ns">0 . 2 .</episode-num>
+    <episode-num system="onscreen">Folge 3 Staffel 1</episode-num>
+    <episode-num system="thetvdb.com">series/248763</episode-num>
+  </programme>
+  <programme start="20160715170000 +0200" stop="20160715174500 +0200" channel="3sat.de">
+    <title lang="de">Fahrt ins Risiko</title>
+    <sub-title lang="de">Traumstraße an der Adria</sub-title>
+    <desc lang="de">Die "Adria-Magistrale" ist eine der schönsten Küstenstraßen der Welt. Das technische Meisterwerk entstand zu Zeiten des jugoslawischen Präsidenten Josip Broz Tito.</desc>
+    <credits>
+      <producer>Mirjana Momirovic</producer>
+      <producer>Caroline Haertel</producer>
+    </credits>
+    <date>2011</date>
+    <category lang="en">series</category>
+    <category lang="en">Documentary</category>
+    <url>http://thetvdb.com/?tab=episode&amp;seriesid=248763&amp;seasonid=465998&amp;id=4099890&amp;lid=14</url>
+    <episode-num system="xmltv_ns">0 . 3 .</episode-num>
+    <episode-num system="onscreen">Folge 4 Staffel 1</episode-num>
+    <episode-num system="thetvdb.com">series/248763</episode-num>
+  </programme>
+  <programme start="20160715174500 +0200" stop="20160715183000 +0200" channel="3sat.de">
+    <title lang="de">Fahrt ins Risiko</title>
+    <sub-title lang="de">Highway im Himalaya</sub-title>
+    <desc lang="de">Zahlreiche Pässe führen in die Höhen des Himalaya. Der "Manali-Leh-Highway" gehört zu den abenteuerlichsten Straßen der Welt. Die 475 Kilometer lange Route verbindet die Stadt Manali mit Leh.</desc>
+    <credits>
+      <producer>Holger Preuße</producer>
+    </credits>
+    <date>2011</date>
+    <category lang="en">series</category>
+    <category lang="en">Documentary</category>
+    <url>http://thetvdb.com/?tab=episode&amp;seriesid=248763&amp;seasonid=465998&amp;id=4099892&amp;lid=14</url>
+    <episode-num system="xmltv_ns">0 . 4 .</episode-num>
+    <episode-num system="onscreen">Folge 5 Staffel 1</episode-num>
+    <episode-num system="thetvdb.com">series/248763</episode-num>
+  </programme>
+  <programme start="20160715183000 +0200" stop="20160715190000 +0200" channel="3sat.de">
+    <title lang="de">nano</title>
+    <desc lang="de">Das 3sat-Wissenschaftsmagazin berichtet werktäglich ausführlich, verständlich und aktuell über Technik, Medizin, Wissenschaft und Forschung.</desc>
+    <credits>
+      <presenter>Kristina zur Mühlen</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715190000 +0200" stop="20160715192000 +0200" channel="3sat.de">
+    <title lang="de">heute</title>
+    <desc lang="de">Die Nachrichtensendung des ZDF.</desc>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160715192000 +0200" stop="20160715200000 +0200" channel="3sat.de">
+    <title lang="de">Kulturzeit</title>
+    <desc lang="de">"Kulturzeit" ist das werktägliche Kulturmagazin von 3sat.</desc>
+    <credits>
+      <presenter>Ernst A. Grandits</presenter>
+    </credits>
+  </programme>
+  <programme start="20160715200000 +0200" stop="20160715201500 +0200" channel="3sat.de">
+    <title lang="de">Tagesschau</title>
+    <desc lang="de">ARD-Nachrichten aus dem In- und Ausland auf den Punkt gebracht.</desc>
+    <category lang="en">news</category>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160715201500 +0200" stop="20160715210000 +0200" channel="3sat.de">
+    <title lang="de">Alles Öko auf dem Traumschiff?</title>
+    <desc lang="de">Rund 500 Kreuzfahrtschiffe werden diesen Sommer Häfen in Norddeutschland ansteuern. Sie bringen Touristen, aber auch Abgase. Der Film zeigt die Schattenseite der Branche.</desc>
+    <credits>
+      <producer>Andreas Orth</producer>
+    </credits>
+    <category lang="en">movie</category>
+    <category lang="en">Documentary</category>
+  </programme>
+  <programme start="20160715210000 +0200" stop="20160715213000 +0200" channel="3sat.de">
+    <title lang="de">makro</title>
+    <sub-title lang="de">Sand - das neue Gold</sub-title>
+    <desc lang="de">Die Welt braucht immer mehr Sand. Hauptverursacher dieses "Sandhungers" ist die Bauwirtschaft. Riesige Bauprojekte in Städten und kilometerlange Autobahnen verschlingen tonnenweise Sand.</desc>
+    <credits>
+      <presenter>Eva Schmidt</presenter>
+    </credits>
+    <category lang="en">series</category>
+  </programme>
+  <programme start="20160715213000 +0200" stop="20160715221000 +0200" channel="3sat.de">
+    <title lang="de">auslandsjournal extra</title>
+    <desc lang="de">"auslandsjournal extra" zeigt politische Entwicklungen und gesellschaftliche Veränderungen in den Ländern der Welt.</desc>
+  </programme>
+  <programme start="20160715221000 +0200" stop="20160715223500 +0200" channel="3sat.de">
+    <title lang="de">ZIB 2</title>
+    <desc lang="de">Das tägliche Nachrichtenmagazin des ORF-Fernsehens.</desc>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160715223500 +0200" stop="20160716002000 +0200" channel="3sat.de">
+    <title lang="de">U-571</title>
+    <desc lang="de">Während des Zweiten Weltkriegs wird das deutsche U-Boot U-571 manövrierunfähig gebombt. An Bord befindet sich eine Enigma-Chiffriermaschine, die die USA erbeuten wollen - die Jagd beginnt.</desc>
+    <credits>
+      <director>Jonathan Mostow</director>
+      <actor role="Lt. Andrew Tyler">Matthew McConaughey</actor>
+      <actor role="Lt. Cmdr. Mike Dahlgren">Bill Paxton</actor>
+      <actor role="CPO Henry Klough">Harvey Keitel</actor>
+      <actor role="Lt. Pete Emmett">Jon Bon Jovi</actor>
+      <actor role="Maj. Matthew Coonen">David Keith</actor>
+      <actor role="Capt. Lt. Gunther Wassner">Thomas Kretschmann</actor>
+      <actor role="Lt. Hirsch">Jake Weber</actor>
+      <actor role="Bill Wentz">Jack Noseworthy</actor>
+      <actor role="Ted Trigger Fitzgerald">Tom Guiry</actor>
+      <actor role="Ronald Rabbit Parker">Will Estes</actor>
+      <actor role="Steward Eddie Carson">Terrence 'T.C.' Carson</actor>
+      <writer>Sam Montgomery</writer>
+      <writer>David Ayer</writer>
+      <producer>Dino De Laurentiis</producer>
+      <producer>Martha De Laurentiis</producer>
+    </credits>
+    <date>2000</date>
+    <category lang="en">movie</category>
+    <category lang="en">Action</category>
+    <url>http://www.themoviedb.org/movie/3536</url>
+    <episode-num system="themoviedb.org">movie/3536</episode-num>
+    <audio>
+      <stereo>dolby digital</stereo>
+    </audio>
+    <star-rating>
+      <value>6.1 / 10</value>
+    </star-rating>
+  </programme>
+  <programme start="20160716002000 +0200" stop="20160716005000 +0200" channel="3sat.de">
+    <title lang="de">10 vor 10</title>
+    <desc lang="de">"10vor10" ist eine Informationssendung von Schweizer Radio und Fernsehen (SRF).</desc>
+    <category lang="en">news</category>
+  </programme>
+  <programme start="20160716005000 +0200" stop="20160716012000 +0200" channel="3sat.de">
+    <title lang="de">extra 3 Spezial: Der reale Irrsinn XXL</title>
+    <desc lang="de">&lt;p&gt;Keine Gnade für alte Säcke&lt;br/&gt;&lt;br/&gt;Querstehender Stromverteilerkasten&lt;br/&gt;&lt;br/&gt;Radweg im Moor&lt;br/&gt;&lt;br/&gt;Von Herr zur Frau Witzlebenstraße&lt;br/&gt;&lt;br/&gt;Die Brötchenpolizei in Celle&lt;br/&gt;&lt;br/&gt;Das Bernsteinzimmer in Wuppertal&lt;br/&gt;&lt;br/&gt;Camping-Streit an der Ostsee&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;</desc>
+  </programme>
+  <programme start="20160716012000 +0200" stop="20160716014500 +0200" channel="3sat.de">
+    <title lang="de">Kalahari Gemsen</title>
+    <desc lang="de">In der Sketchcomedy ergeben die Vornamen der Hauptdarsteller und Autoren Angelika Niedetzky ("Echt fett") und Ramesh Nair ("Dancing Stars", DGCC) - neu formiert - den ungewöhnlichen Titel.</desc>
+    <credits>
+      <director>Thomas Mraz</director>
+      <writer>Thomas Mraz</writer>
+    </credits>
+  </programme>
+  <programme start="20160716014500 +0200" stop="20160716021000 +0200" channel="3sat.de">
+    <title lang="de">Kalahari Gemsen</title>
+    <desc lang="de">Wie werde ich am günstigsten die Oma los? Und wie überfällt man eine Bank? Am besten, man fragt dort nach. - Es wird wieder einmal heftig ausgeteilt bei den "Kalahari Gemsen".</desc>
+    <credits>
+      <director>Thomas Mraz</director>
+      <writer>Thomas Mraz</writer>
+    </credits>
+  </programme>
+</tv>

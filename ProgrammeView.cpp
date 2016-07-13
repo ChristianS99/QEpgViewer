@@ -19,29 +19,65 @@
 
 #include "ProgrammeView.h"
 
-#include <QLabel>
-#include <QTimeEdit>
 #include <QBoxLayout>
+#include <QLabel>
+#include <QDebug>
+#include <QDateTime>
 
-ProgrammeView::ProgrammeView() : startTime( 0, 0 )
+ProgrammeView::ProgrammeView ( QDomElement programmeNode )
 {
+	this->setSizePolicy ( QSizePolicy::Fixed, QSizePolicy::Fixed );
+	this->setFixedWidth ( 200 );
+
+	if ( programmeNode.tagName() != "programme" ) throw;
+
 	QBoxLayout* bl = new QBoxLayout ( QBoxLayout::LeftToRight );
 	this->setLayout ( bl );
 
-	QLabel* lblTime = new QLabel( startTime.toString("hh:mm"));
-	bl->addWidget ( lblTime, 0, Qt::AlignTop );
+	QLabel* lblStartTime = new QLabel();
+	QDateTime startTime;
+
+	if ( programmeNode.hasAttribute ( "start" ) )
+		startTime = QDateTime::fromString ( programmeNode.attribute ( "start" ), "yyyyMMddhhmmss +0200" );
+
+	lblStartTime->setText ( startTime.toString ( "hh:mm" ) );
+	bl->addWidget ( lblStartTime, 0, Qt::AlignTop );
+	QDateTime endTime;
+
+	if ( programmeNode.hasAttribute ( "stop" ) )
+		endTime = QDateTime::fromString ( programmeNode.attribute ( "stop" ), "yyyyMMddhhmmss +0200" );
+
+	this->setFixedHeight ( startTime.secsTo ( endTime ) / 10 );
 
 	QBoxLayout* bl2 = new QBoxLayout ( QBoxLayout::TopToBottom );
 	bl->addLayout ( bl2, 1 );
 
-	QLabel* lblTitle = new QLabel ( "Titel\nTitel2" );
+	auto titleNode = programmeNode.firstChildElement ( "title" );
+	QLabel* lblTitle = new QLabel ( "<noTitle>" );
+	lblTitle->setStyleSheet("font-weight: bold;");
+
+	if ( !titleNode.isNull() )
+		lblTitle->setText ( titleNode.text() );
+
 	bl2->addWidget ( lblTitle );
 
-	QLabel* lblDescripton = new QLabel ( "Description" );
-	bl2->addWidget ( lblDescripton, 1 );
+	auto subTitleNode = programmeNode.firstChildElement ( "sub-title" );
+
+	if ( !subTitleNode.isNull() )
+		{
+			QLabel* lblSubTitle = new QLabel ( subTitleNode.text() );
+			bl2->addWidget ( lblSubTitle );
+		}
+
+	auto descriptionNode = programmeNode.firstChildElement ( "desc" );
+	QLabel* lblDescripton = new QLabel ( "<noDescription>" );
+	lblDescripton->setWordWrap ( true );
+
+	if ( !descriptionNode.isNull() )
+		lblDescripton->setText ( descriptionNode.text() );
+
 	lblDescripton->setAlignment ( Qt::AlignTop );
-	
-	
+	bl2->addWidget ( lblDescripton, 1 );
 }
 
 ProgrammeView::~ProgrammeView()
