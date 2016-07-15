@@ -1,76 +1,59 @@
-#include <iostream>
 #include <map>
-#include <string>
 
 #include <QApplication>
 #include <QDomDocument>
 #include <QFile>
+#include <QDir>
+#include <QStandardPaths>
 
 #include "EpgView.h"
 #include "QDomNodeIterator.h"
 
-int main ( int argc, char** argv )
+
+int main( int argc, char** argv )
 {
-	QApplication QEpgViewer ( argc, argv );
-	
-	QDomDocument domDoc ( "ChannelList" );
-	QFile file ( "channels-Germany.xml" );
+	QApplication QEpgViewer( argc, argv );
+	QEpgViewer.setApplicationName( "QEpgViewer" );
 
-	if ( !file.open ( QIODevice::ReadOnly ) )
+	QDir dataLocation( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) );
+
+	if ( !dataLocation.mkpath( "." ) ) { throw; }
+
+	QDomDocument domDoc( "ChannelList" );
+	QFile file( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/channels-Germany.xml" );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
+	{
 		return 1;
+	}
 
-	if ( !domDoc.setContent ( &file ) )
-		{
-			file.close();
-			return 2;
-		}
+	if ( !domDoc.setContent( &file ) )
+	{
+		file.close();
+		return 2;
+	}
+
 	file.close();
 
 	if ( domDoc.documentElement().tagName() != "tv" )
+	{
 		return 3;
-	
-	EpgView epgView;
-	
+	}
 	std::map<std::string, Channel> channelList;
-	for( auto node: domDoc.documentElement().elementsByTagName( "channel" ) )
-		if( node.isElement() )
-			channelList.emplace( node.toElement().attribute("id").toStdString(), node.toElement() );
-	
-	//for( auto element: channelList )
-	//	std::cout << element.first << " => " << element.second.getDisplayName().toStdString() << std::endl;
-		
-	epgView.addChannel(channelList.at("3sat.de"));
-	epgView.addChannel(channelList.at("zdf.de"));
-	
-	/*widget->setLayout( new QBoxLayout(QBoxLayout::LeftToRight ));
-	
-	Channel* channel = new Channel();
-	for ( auto node : domDoc.documentElement().elementsByTagName ( "programme" ) )
+
+	for ( auto node : domDoc.documentElement().elementsByTagName( "channel" ) )
+		if ( node.isElement() )
 		{
-			if( node.isElement() )
-			{
-				ProgrammeView* pv = new ProgrammeView ( node.toElement() );
-				//connect(pv,SIGNAL(hovered()),pv,SLOT());
-				channel->addProgrammeView(pv);
-			}
+			channelList.emplace( node.toElement().attribute( "id" ).toStdString(), node.toElement() );
 		}
-	widget->layout()->addWidget(channel);
-	
-	Channel* channel2 = new Channel();
-	for ( auto node : domDoc.documentElement().elementsByTagName ( "programme" ) )
-		{
-			if( node.isElement() )
-			{
-				ProgrammeView* pv = new ProgrammeView ( node.toElement() );
-				channel2->addProgrammeView(pv);
-			}
-		}
-	widget->layout()->addWidget(channel2);
-	
-	QScrollArea window;
-	window.setWidget( widget );
-	window.show();*/
+
+	EpgView epgView;
+	epgView.addChannel( channelList.at( "3sat.de" ) );
+	epgView.addChannel( channelList.at( "zdf.de" ) );
+
 	epgView.show();
 	QEpgViewer.exec();
 	return 0;
 }
+
+

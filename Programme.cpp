@@ -17,19 +17,4 @@
  *
  */
 
-#ifndef CHANNELVIEW_H
-#define CHANNELVIEW_H
-
-#include <QWidget>
-#include "ProgrammeView.h"
-
-class ChannelView : public QWidget
-{
-	Q_OBJECT
-public:
-	ChannelView();
-	void addProgrammeView( ProgrammeView* added );
-private:
-};
-
-#endif // CHANNELVIEW_H
+#include "Programme.h"

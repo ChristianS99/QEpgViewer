@@ -22,13 +22,18 @@
 
 #include <QDomElement>
 #include <QFrame>
+#include <QDateTime>
 
 class ProgrammeView : public QFrame
 {
 	Q_OBJECT
 public:
-	ProgrammeView( QDomElement programmeElement );
+	ProgrammeView( QDomElement programmeElement, QWidget *parent = 0);
+	const QDateTime& getStartTime () const { return startTime; };
+	int durationMinutes () const { return startTime.secsTo( endTime ) / 60; };
 private:
+	QDateTime startTime;
+	QDateTime endTime;
 protected:
 	virtual void enterEvent( QEvent* e );
 	virtual void leaveEvent( QEvent* e );

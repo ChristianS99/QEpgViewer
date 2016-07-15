@@ -36,6 +36,7 @@ private:
 public:
 	Channel( QDomElement channelData );
 	const QString& getDisplayName() const { return displayName; }; 
+	const QString& getId() const { return channelId; };
 };
 
 #endif // CHANNEL_H

@@ -18,22 +18,75 @@
  */
 
 #include "EpgView.h"
+#include <QHeaderView>
+#include <QDomDocument>
+#include <QStandardPaths>
+#include <QFile>
+#include <QPushButton>
 
-#include <QBoxLayout>
-#include <QWidget>
+#include <QDebug>
 
-EpgView::EpgView()
+#include "ProgrammeView.h"
+#include "QDomNodeIterator.h"
+
+EpgView::EpgView( ) : viewHours( 32 )
 {
-	QWidget* widget = new QWidget();
-	QBoxLayout* bl = new QBoxLayout( QBoxLayout::LeftToRight );
-	widget->setLayout(bl);
-	this->setWidget( widget );
+	viewBegin.setDate( QDate( 2016, 7, 14 ) );
+	viewBegin.setTime( QTime( 22, 0 ) );
+
+	this->setRowCount( viewHours * 60 );
+	this->setShowGrid( false );
+
+	this->verticalHeader()->setSectionResizeMode( QHeaderView::Fixed );
+	this->verticalHeader()->setDefaultSectionSize( 4 );
+
+	this->setEditTriggers( QAbstractItemView::NoEditTriggers );
+	this->setSelectionMode( QAbstractItemView::NoSelection );
 }
 
-void EpgView::addChannel( const Channel& newChannel)
+void EpgView::addChannel( const Channel& newChan )
 {
-	channelList.push_back( newChannel );
-}
+	this->insertColumn( this->columnCount() );
+	QTableWidgetItem* hi = new QTableWidgetItem();
+	hi->setText( QString( newChan.getDisplayName() ) );
+	this->setHorizontalHeaderItem( this->columnCount() - 1, hi );
 
+	QDomDocument domDoc( "ChannelData" );
+	QFile file( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/" + newChan.getId() + "_2016-07-15.xml" );
+
+	if ( !file.open( QIODevice::ReadOnly ) )
+	{
+		throw;
+	}
+
+	if ( !domDoc.setContent( &file ) )
+	{
+		file.close();
+		throw;
+	}
+
+	file.close();
+
+	if ( domDoc.documentElement().tagName() != "tv" )
+	{
+		throw;
+	}
+
+	for ( auto node : domDoc.documentElement().elementsByTagName( "programme" ) )
+	{
+		if ( node.isElement() )
+		{
+			ProgrammeView* pv = new ProgrammeView( node.toElement() );
+			//qDebug() << pv->startTimeSeconds() / 60 << "," << pv->durationSeconds() / 60;
+			this->setCellWidget( viewBegin.secsTo( pv->getStartTime() ) / 60, this->columnCount() - 1, pv );
+			this->setSpan( viewBegin.secsTo( pv->getStartTime() ) / 60, this->columnCount() - 1, pv->durationMinutes() , 1 );
+
+			//pv->show();
+			//this->setCellWidget( pv->startTimeSeconds() / 60, this->columnCount() - 1, new QPushButton("abc") );
+			//this->setSpan( pv->startTimeSeconds() / 60, this->columnCount() - 1, pv->durationSeconds() / 60 , 1 );
+			//break;
+		}
+	}
+}
 
 #include "EpgView.moc"

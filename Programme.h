@@ -17,20 +17,11 @@
  *
  */
 
-#include "ChannelView.h"
+#ifndef PROGRAMME_H
+#define PROGRAMME_H
 
-#include <QBoxLayout>
-
-ChannelView::ChannelView()
+class Programme
 {
-	QBoxLayout* bl = new QBoxLayout( QBoxLayout::TopToBottom );
-	this->setLayout( bl );
-	bl->setSpacing(0);
-}
+};
 
-void ChannelView::addProgrammeView(ProgrammeView* added)
-{
-	this->layout()->addWidget(added);
-}
-
-#include "ChannelView.moc"
+#endif // PROGRAMME_H

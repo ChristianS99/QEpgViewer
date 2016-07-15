@@ -22,19 +22,21 @@
 
 #include <list>
 
-#include <QScrollArea>
+#include <QTableWidget>
 #include <QDomDocument>
+#include <QDateTime>
 
 #include "Channel.h"
 
-class EpgView : public QScrollArea
+class EpgView : public QTableWidget
 {
-	Q_OBJECT
-public:
-	EpgView();
-	void addChannel( const Channel& newChannel );
-private:
-	std::list<Channel> channelList;
+		Q_OBJECT
+	public:
+		EpgView( );
+		void addChannel( const Channel& newChan );
+	private:
+		QDateTime viewBegin;
+		unsigned int viewHours;
 };
 
 #endif // EPGVIEW_H

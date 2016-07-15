@@ -20,22 +20,31 @@
 #include "Channel.h"
 
 #include <QFile>
+#include <QStandardPaths>
+#include <QDebug>
 
-Channel::Channel(QDomElement channelData) : channelId(""), displayName(""), channelLogoUrl() ,channelLogo()
+Channel::Channel( QDomElement channelData ) : channelId( "" ), displayName( "" ), channelLogoUrl() , channelLogo()
 {
 	if ( channelData.tagName() != "channel" )
-		{
-			throw;
-		}
-		
-	channelId = channelData.attribute( "id" );
-	displayName = channelData.firstChildElement("display-name").text();
-	channelLogoUrl.setUrl(channelData.firstChildElement("display-name").attribute("src"));
-	if( QFile::exists(channelLogoUrl.fileName()) )
-		channelLogo.load(channelLogoUrl.fileName());
-	//else
-		//throw; //not implemented
+	{
+		throw;
+	}
 
+	channelId = channelData.attribute( "id" );
+	displayName = channelData.firstChildElement( "display-name" ).text();
+	channelLogoUrl.setUrl( channelData.firstChildElement( "icon" ).attribute( "src" ) );
+
+	if ( channelLogoUrl.isValid() )
+	{
+		if ( QFile::exists( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/" + channelLogoUrl.fileName() ) )
+		{
+			channelLogo.load( channelLogoUrl.fileName() );
+		}
+		else
+		{
+			channelLogo.load( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/Image-Not-Found.png" );
+		}
+	}
 }
 
 #include "Channel.moc"

@@ -22,115 +22,109 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QDateTime>
+#include <QRect>
 
 #include <QDebug>
 
-ProgrammeView::ProgrammeView ( QDomElement programmeNode )
-{
-	this->setMouseTracking ( true );
-	
-	this->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Fixed );
-	//this->setFixedWidth ( 200 );
-	
-	this->setFrameStyle( QFrame::Box );
-	this->setLineWidth(1);
-	
-	this->setBackgroundRole(QPalette::Base);
-	this->setAutoFillBackground(true);
-	
-	
-	if ( programmeNode.tagName() != "programme" )
-		{
-			throw;
-		}
 
-	QBoxLayout* bl = new QBoxLayout ( QBoxLayout::LeftToRight );
-	this->setLayout ( bl );
+ProgrammeView::ProgrammeView( QDomElement programmeNode, QWidget *parent ) : QFrame( parent )
+{
+	this->setMouseTracking( true );
+
+	this->setFrameStyle( QFrame::Box );
+	this->setLineWidth( 1 );
+
+	this->setBackgroundRole( QPalette::Base );
+	this->setAutoFillBackground( true );
+
+	if ( programmeNode.tagName() != "programme" )
+	{
+		throw;
+	}
+
+	QBoxLayout* bl = new QBoxLayout( QBoxLayout::LeftToRight );
+	this->setLayout( bl );
 
 	QLabel* lblStartTime = new QLabel();
-	QDateTime startTime;
 
-	if ( programmeNode.hasAttribute ( "start" ) )
-		{
-			startTime = QDateTime::fromString ( programmeNode.attribute ( "start" ), "yyyyMMddhhmmss +0200" );
-		}
+	if ( programmeNode.hasAttribute( "start" ) )
+	{
+		startTime = QDateTime::fromString( programmeNode.attribute( "start" ), "yyyyMMddhhmmss +0200" );
+	}
 
-	lblStartTime->setText ( startTime.toString ( "hh:mm" ) );
-	bl->addWidget ( lblStartTime, 0, Qt::AlignTop );
-	QDateTime endTime;
+	lblStartTime->setText( startTime.toString( "hh:mm" ) );
+	bl->addWidget( lblStartTime, 0, Qt::AlignTop );
 
-	if ( programmeNode.hasAttribute ( "stop" ) )
-		{
-			endTime = QDateTime::fromString ( programmeNode.attribute ( "stop" ), "yyyyMMddhhmmss +0200" );
-		}
+	if ( programmeNode.hasAttribute( "stop" ) )
+	{
+		endTime = QDateTime::fromString( programmeNode.attribute( "stop" ), "yyyyMMddhhmmss +0200" );
+	}
+	
+	QBoxLayout* bl2 = new QBoxLayout( QBoxLayout::TopToBottom );
+	bl2->setAlignment( Qt::AlignTop );
+	bl->addLayout( bl2, 1 );
 
-	this->setFixedHeight ( startTime.secsTo ( endTime ) / 10 );
-
-	QBoxLayout* bl2 = new QBoxLayout ( QBoxLayout::TopToBottom );
-	bl2->setAlignment ( Qt::AlignTop );
-	bl->addLayout ( bl2, 1 );
-
-	auto titleNode = programmeNode.firstChildElement ( "title" );
-	QLabel* lblTitle = new QLabel ( "<noTitle>" );
-	lblTitle->setWordWrap ( true );
+	auto titleNode = programmeNode.firstChildElement( "title" );
+	QLabel* lblTitle = new QLabel( "<noTitle>" );
+	lblTitle->setWordWrap( true );
 
 	QFont fntTitle( lblTitle->font() );
-	fntTitle.setBold ( true );
-	lblTitle->setFont ( fntTitle );
+	fntTitle.setBold( true );
+	lblTitle->setFont( fntTitle );
 
 	if ( !titleNode.isNull() )
-		{
-			lblTitle->setText ( titleNode.text() );
-		}
+	{
+		lblTitle->setText( titleNode.text() );
+	}
 
-	bl2->addWidget ( lblTitle );
+	bl2->addWidget( lblTitle );
 
-	auto subTitleNode = programmeNode.firstChildElement ( "sub-title" );
+	auto subTitleNode = programmeNode.firstChildElement( "sub-title" );
 
 	if ( !subTitleNode.isNull() )
-		{
-			QLabel* lblSubTitle = new QLabel ( subTitleNode.text() );
-			lblSubTitle->setWordWrap ( true );
+	{
+		QLabel* lblSubTitle = new QLabel( subTitleNode.text() );
+		lblSubTitle->setWordWrap( true );
 
-			QFont fntSubTitle(lblSubTitle->font());
-			fntSubTitle.setPointSizeF ( fntSubTitle.pointSizeF() *.9 );
-			lblSubTitle->setFont ( fntSubTitle );
+		QFont fntSubTitle( lblSubTitle->font() );
+		fntSubTitle.setPointSizeF( fntSubTitle.pointSizeF() *.9 );
+		lblSubTitle->setFont( fntSubTitle );
 
-			bl2->addWidget ( lblSubTitle );
-		}
+		bl2->addWidget( lblSubTitle );
+	}
 
-	auto descriptionNode = programmeNode.firstChildElement ( "desc" );
-	QLabel* lblDescripton = new QLabel ( "<noDescription>" );
+	auto descriptionNode = programmeNode.firstChildElement( "desc" );
+	QLabel* lblDescripton = new QLabel( "<noDescription>" );
 
 	QFont fntDescription( lblDescripton->font() );
-	fntDescription.setPointSizeF ( fntDescription.pointSizeF() *.8 );
-	lblDescripton->setFont ( fntDescription );
+	fntDescription.setPointSizeF( fntDescription.pointSizeF() *.8 );
+	lblDescripton->setFont( fntDescription );
 
-	lblDescripton->setWordWrap ( true );
+	lblDescripton->setWordWrap( true );
 
 	if ( !descriptionNode.isNull() )
-		{
-			lblDescripton->setText ( descriptionNode.text() );
-		}
+	{
+		lblDescripton->setText( descriptionNode.text() );
+	}
 
-	lblDescripton->setAlignment ( Qt::AlignTop );
-	bl2->addWidget ( lblDescripton, 1 );
+	lblDescripton->setAlignment( Qt::AlignTop );
+	bl2->addWidget( lblDescripton, 1 );
 }
 
-void ProgrammeView::enterEvent ( QEvent* e )
+void ProgrammeView::enterEvent( QEvent* e )
 {
-	this->setBackgroundRole(QPalette::Highlight);
+	this->setBackgroundRole( QPalette::Highlight );
 
 	// don't forget to forward the event
-	QWidget::enterEvent ( e );
+	QWidget::enterEvent( e );
 }
 
-void ProgrammeView::leaveEvent(QEvent* e)
+void ProgrammeView::leaveEvent( QEvent* e )
 {
-	this->setBackgroundRole(QPalette::Base);
+	this->setBackgroundRole( QPalette::Base );
 
 	// don't forget to forward the event
-	QWidget::leaveEvent ( e );
+	QWidget::leaveEvent( e );
 }
 
 
