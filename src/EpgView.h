@@ -25,6 +25,7 @@
 #include <QTableWidget>
 #include <QDomDocument>
 #include <QDateTime>
+#include <QFile>
 
 #include "Channel.h"
 
@@ -32,8 +33,7 @@ class EpgView : public QTableWidget
 {
 		Q_OBJECT
 	public:
-		EpgView( );
-		void addChannel( const Channel& newChan );
+		EpgView( const QString& filename );
 	private:
 		QDateTime viewBegin;
 		unsigned int viewHours;

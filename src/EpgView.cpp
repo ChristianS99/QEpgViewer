@@ -18,20 +18,23 @@
  */
 
 #include "EpgView.h"
+#include <linux/in.h>
 #include <QHeaderView>
 #include <QDomDocument>
 #include <QStandardPaths>
 #include <QFile>
 #include <QPushButton>
+#include <exception>
+#include <QScrollBar>
 
 #include <QDebug>
 
 #include "ProgrammeView.h"
 #include "QDomNodeIterator.h"
 
-EpgView::EpgView( ) : viewHours( 32 )
+EpgView::EpgView( const QString& filename ) : viewHours( 32 )
 {
-	viewBegin.setDate( QDate( 2016, 7, 14 ) );
+	viewBegin.setDate( QDate( 2016, 7, 21 ) );
 	viewBegin.setTime( QTime( 22, 0 ) );
 
 	this->setRowCount( viewHours * 60 );
@@ -39,20 +42,14 @@ EpgView::EpgView( ) : viewHours( 32 )
 
 	this->verticalHeader()->setSectionResizeMode( QHeaderView::Fixed );
 	this->verticalHeader()->setDefaultSectionSize( 4 );
+	this->horizontalHeader()->setDefaultSectionSize(200);
 
 	this->setEditTriggers( QAbstractItemView::NoEditTriggers );
 	this->setSelectionMode( QAbstractItemView::NoSelection );
-}
-
-void EpgView::addChannel( const Channel& newChan )
-{
-	this->insertColumn( this->columnCount() );
-	QTableWidgetItem* hi = new QTableWidgetItem();
-	hi->setText( QString( newChan.getDisplayName() ) );
-	this->setHorizontalHeaderItem( this->columnCount() - 1, hi );
-
-	QDomDocument domDoc( "ChannelData" );
-	QFile file( QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/" + newChan.getId() + "_2016-07-15.xml" );
+	
+	
+	QDomDocument domDoc( "EPGData" );
+	QFile file( filename );
 
 	if ( !file.open( QIODevice::ReadOnly ) )
 	{
@@ -72,19 +69,33 @@ void EpgView::addChannel( const Channel& newChan )
 		throw;
 	}
 
+	std::map<std::string, int> channelList;
+
+	for ( auto node : domDoc.documentElement().elementsByTagName( "channel" ) )
+		if ( node.isElement() )
+		{
+			this->insertColumn( this->columnCount() );
+			QTableWidgetItem* hi = new QTableWidgetItem();
+			hi->setText( node.toElement().firstChildElement( "display-name" ).text() );
+			this->setHorizontalHeaderItem( this->columnCount() - 1, hi );
+			channelList.emplace( node.toElement().attribute( "id" ).toStdString(), this->columnCount() - 1 );
+		}
+		
 	for ( auto node : domDoc.documentElement().elementsByTagName( "programme" ) )
 	{
 		if ( node.isElement() )
 		{
-			ProgrammeView* pv = new ProgrammeView( node.toElement() );
-			//qDebug() << pv->startTimeSeconds() / 60 << "," << pv->durationSeconds() / 60;
-			this->setCellWidget( viewBegin.secsTo( pv->getStartTime() ) / 60, this->columnCount() - 1, pv );
-			this->setSpan( viewBegin.secsTo( pv->getStartTime() ) / 60, this->columnCount() - 1, pv->durationMinutes() , 1 );
-
-			//pv->show();
-			//this->setCellWidget( pv->startTimeSeconds() / 60, this->columnCount() - 1, new QPushButton("abc") );
-			//this->setSpan( pv->startTimeSeconds() / 60, this->columnCount() - 1, pv->durationSeconds() / 60 , 1 );
-			//break;
+			try
+			{
+				ProgrammeView* pv = new ProgrammeView( node.toElement() );
+				int column = channelList.at( node.toElement().attribute( "channel" ).toStdString() );
+				this->setCellWidget( viewBegin.secsTo( pv->getStartTime() ) / 60, column, pv );
+				this->setSpan( viewBegin.secsTo( pv->getStartTime() ) / 60, column , pv->durationMinutes() , 1 );
+			}
+			catch( std::out_of_range )
+			{
+				
+			}
 		}
 	}
 }
